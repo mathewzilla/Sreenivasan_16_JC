@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<style>
+
+@import url(http://fonts.googleapis.com/css?family=PT+Serif|PT+Serif:b|PT+Serif:i);
+
+section {
+background: #000;
+color: #fff;
+padding: 2em;
+font-family: "PT Serif", Baskerville, Georgia;
+}
+
+#follow {
+background: none;
+}
+
+.grey {
+color: #777;
+}
+
+a:link,
+a:visited {
+color: orange;
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+</style>
+
+<!--
+<section style="text-align:center;padding-top:5em;">
+Auto-generated presentation of data
+<p style="font-size:50%;"> a <a href="https://mathewzilla.github.io/">Mathew H. Evans</a>
+experiment with <a href="https://github.com/mbostock/stack">Stack</a><br> Slides generated on Fri Mar 31 10:04:52 2017<br>
+</section> -->
+
+<section style="text-align:center;padding:.35em;padding-top:3em"> <!--;font-size:100%;"><br>figs/Sreenivasan_16_title.png<br> -->
+  <image style='width: 80%;'src='figs/Sreenivasan_16_title.png'></image>
+  <p style="font-size:50%;"> a <a href="https://mathewzilla.github.io/">Mathew H. Evans</a>
+  experiment with <a href="https://github.com/mbostock/stack">Stack</a><br>
+  Slides generated on Fri Mar 31 10:04:52 2017<br>
+</section>
+
+<section style="text-align:center">
+  <image style='width: 80%;'src='figs/Sreenivasan_16_F1A.png'></image>
+  <p style="text-align:left">Figure 1<br>
+</section>
+
+
+<section style="text-align:center">
+  <image style='width: 80%;'src='figs/Sreenivasan_16_F1C.png'></image>
+  <p style="text-align:left">Figure 1 (cont.)<br>
+</section>
+
+
+<section style="text-align:center">
+  <image style='height: 95%;'src='figs/Sreenivasan_16_F2.png'></image>
+  <p style="text-align:left">Figure 2<br>
+</section>
+
+
+<section style="text-align:center">
+  <image style='height: 45%'src='figs/Sreenivasan_16_F3A.png'></image>
+  <image style='height: 45%'src='figs/Sreenivasan_16_F3C.png'></image><br>
+  <image style='width: 45%'src='figs/Sreenivasan_16_F3E.png'></image>
+  <p style="text-align:left">Figure 3<br>
+</section>
+
+
+
+<section style="text-align:center">
+  <image style='height: 95%;'src='figs/Sreenivasan_16_F4.png'></image>
+  <p style="text-align:left">Figure 4<br>
+</section>
+
+
+<section style="text-align:center">
+  <image style='width: 45%;'src='figs/Sreenivasan_16_F5A.png'></image>
+  <image style='width: 45%;'src='figs/Sreenivasan_16_F5C.png'></image>
+  <p style="text-align:left">Figure 5<br>
+</section>
+
+
+<section style="text-align:center">
+  <image style='width: 80%;'src='figs/Sreenivasan_16_F6A.png'></image>
+  <p style="text-align:left">Figure 6<br>
+</section>
+
+<section style="text-align:center">
+  <image style='width: 80%;'src='figs/Sreenivasan_16_F6C.png'></image>
+  <p style="text-align:left">Figure 6 (cont.)<br>
+</section>
+
+
+<!-- SUPPLEMENTAL FIGS. FIND WAY TO HYPERLINK-->
+<section style="text-align:center">
+  <image style='width: 80%;'src='figs/Sreenivasan_16_F3A.png'></image>
+  <p style="text-align:left">Figure 3<br>
+</section>
+
+<section style="text-align:center">
+  <image style='width: 75%;' src='figs/Sreenivasan_16_F3C.png'></image>
+  <p style="text-align:left">Figure 3<br>
+</section>
+
+
+<section style="text-align:center">
+  <image style='width: 80%;'src='figs/Sreenivasan_16_F3E.png'></image>
+  <p style="text-align:left">Figure 3<br>
+</section>
+
+
+<section style="text-align:center">
+  <image style='height: 90%;'src='figs/Sreenivasan_16_S1.png'></image>
+</section>
+
+
+<section style="text-align:center">
+  <image style='height: 90%;'src='figs/Sreenivasan_16_S3A.png'></image>
+  <p style="text-align:left">Supp Fig 3<br>
+</section>
+
+
+<section style="text-align:center">
+  <image style='height: 90%;'src='figs/Sreenivasan_16_S3B.png'></image>
+</section>
+
+
+
+
+
+
+<script src="d3.v3.min.js"></script>
+<script src="stack.v1.min.js"></script>
+<script>
+
+var mystack = stack()
+.on("activate", activate)
+.on("deactivate", deactivate);
+
+var section = d3.selectAll("section"),
+follow = d3.select("#follow"),
+followAnchor = d3.select("#follow-anchor"),
+followIndex = section[0].indexOf(follow.node());
+
+function refollow() {
+  followAnchor.style("top", (followIndex + (1 - mystack.scrollRatio()) / 2 - d3.event.offset) * 100 + "%");
+}
+
+function activate(d, i) {
+  if (i === followIndex) mystack.on("scroll.follow", refollow);
+}
+
+function deactivate(d, i) {
+  if (i === followIndex) mystack.on("scroll.follow", null);
+}
+
+
+</script>
